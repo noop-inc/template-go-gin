@@ -39,6 +39,7 @@ func main() {
 	// Construct MySQL connection string
 	dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", mysqlUser, mysqlPassword, mysqlHost, mysqlDbName)
 
+	log.Infof(dsn)
 	// Initialize and connect to the MySQL database
 	var err error
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
