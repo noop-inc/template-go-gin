@@ -2,7 +2,7 @@
 components:
   - name: backend
     type: service
-    image: golang:1.22
+    image: golang:1.21
     port: 8080
     build:
       steps:
@@ -14,18 +14,18 @@ components:
       command: '/app/backend'
       variables:
         MYSQL_HOST:
-          $resources: Database.host
+          $resources: dbserver.host
         MYSQL_USER:
-          $resources: Database.username
+          $resources: dbserver.username
         MYSQL_PASSWORD:
-          $resources: Database.password
+          $resources: dbserver.password
         MYSQL_DBNAME:
-          $resources: Database.database
+          $resources: dbserver.database
       resources:
-        - Database
+        - dbserver
 
 resources:
-  - name: Database
+  - name: dbserver
     type: mysql
 
 routes:
