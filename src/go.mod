@@ -1,4 +1,4 @@
-module github.com/noop-app/blueprint-go-gin
+module github.com/noop-inc/template-go-gin
 
 go 1.21.1
 
