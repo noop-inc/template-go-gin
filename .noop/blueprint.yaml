@@ -21,6 +21,8 @@ components:
           $resources: dbserver.password
         MYSQL_DBNAME:
           $resources: dbserver.database
+        MYSQL_PORT:
+          $resources: dbserver.port
       resources:
         - dbserver
 

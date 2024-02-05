@@ -33,11 +33,16 @@ func main() {
 	if mysqlHost == "" {
 		log.Fatalf("Failed to retrieve MySQL DB Name from Environment.")
 	}
+	mysqlPort := os.Getenv("MYSQL_PORT")
+	if mysqlHost == "" {
+		log.Fatalf("Failed to retrieve MySQL Port from Environment.")
+	}
+
 
 	log.Infof("Configuration Loaded.")
 
 	// Construct MySQL connection string
-	dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", mysqlUser, mysqlPassword, mysqlHost, mysqlDbName)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", mysqlUser, mysqlPassword, mysqlHost, mysqlPort, mysqlDbName)
 
 	log.Infof(dsn)
 	// Initialize and connect to the MySQL database
